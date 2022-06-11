@@ -7,7 +7,7 @@ from tkinter import N
 import numpy as np
 
 
-def random_predict(number: int = 20) -> int:
+def random_predict(number: int = 50) -> int:
     """Рандомно угадываем число
 
     Args:
@@ -19,12 +19,13 @@ def random_predict(number: int = 20) -> int:
     # number = np.random.randint(1.101)#getting the number
     
     count = 0
-    p = 0 "p=0 if predict_number < 20, p=1 if 20<predict_number<40 and so on"
+    p = 0    #p=0 if predict_number < 20, p=1 if 20<predict_number<40 and so on"
     predict_number = np.random.randint(1, 101)  # предполагаемое число
     count+=1
     
-    def search_code_20(*args) -> int:
+    def search_code_20(p) -> int:
         num = 0
+        
         num = round(number/2) + p*20
         nonlocal count 
         if num == predict_number:
@@ -44,6 +45,7 @@ def random_predict(number: int = 20) -> int:
                     break  # выход из цикла если угадали
         return count
     
+    
     if number == predict_number:
         return count
     elif number > predict_number:
@@ -51,17 +53,17 @@ def random_predict(number: int = 20) -> int:
     elif 40 == predict_number:
         count+=1
         return count
-    elif 40 < predict_number:
+    elif 40 > predict_number > 20 :
         search_code_20(p=1)
     elif 60 == predict_number:
         count+=1
         return count
-    elif 60 < predict_number:
+    elif 60 > predict_number > 40:
         search_code_20(p=2)
     elif 80 == predict_number:
         count+=1
         return count
-    elif 80 < predict_number:
+    elif 80 > predict_number > 60:
         search_code_20(p=3)
     elif 100 == predict_number:
         count+=1
@@ -69,25 +71,25 @@ def random_predict(number: int = 20) -> int:
     else:
         search_code_20(p=4)
         
-    return count 
+    return count
         
-        # count+=1
-        # number = round(number/2)
-        # if number == predict_number:
-        #     count+=1
-        #     return count
-        # elif number > predict_number:
-        #     while True:
-        #         count += 1
-        #         number -= 1
-        #         if number == predict_number:
-        #             break  # выход из цикла если угадали
-        # else:
-        #     while True:
-        #         count += 1
-        #         number += 1
-        #         if number == predict_number:
-        #             break  # выход из цикла если угадали
+    #     count+=1
+    #     number = round(number/2)
+    #     if number == predict_number:
+    #         count+=1
+    #         return count
+    #     elif number > predict_number:
+    #         while True:
+    #             count += 1
+    #             number -= 1
+    #             if number == predict_number:
+    #                 break  # выход из цикла если угадали
+    #     else:
+    #         while True:
+    #             count += 1
+    #             number += 1
+    #             if number == predict_number:
+    #                 break  # выход из цикла если угадали
     
                 
     #     if number < predict_number:
@@ -105,7 +107,7 @@ def random_predict(number: int = 20) -> int:
     #         number = round(number/2)
     #     count+=1
             
-    return count
+    # return count
 
 
 def score_game(random_predict) -> int:
