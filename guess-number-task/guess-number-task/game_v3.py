@@ -7,7 +7,7 @@ from tkinter import N
 import numpy as np
 
 
-def random_predict(number: int = 50) -> int:
+def random_predict(number: int = 20) -> int:
     """Рандомно угадываем число
 
     Args:
@@ -24,6 +24,15 @@ def random_predict(number: int = 50) -> int:
     count+=1
     
     def search_code_20(p) -> int:
+        """making the algoritm wich serches number in 20 numbers 
+           and counts steps
+
+        Args:
+            p (int, optional): p depends on in wich fifth part we search
+
+        Returns:
+            int: number of attempts in this 20 sector
+        """
         num = 0
         
         num = round(number/2) + p*20
